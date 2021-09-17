@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:custom="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Joke House</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<div class="container my-2">
+  <h1>Jokes Theater</h1>
+
+  <form method="POST" th:action="@{/create-joke}">
+    <button type="submit" name="submit" value="value" class="btn btn-primary btn-sm mb-3">Tell me a Joke NOW!</button>
+  </form>
+
+<!--  <form method="GET" th:action="@{/delete-all}">-->
+<!--    <button type="submit" name="submit" value="value" class="btn btn-primary btn-sm mb-3">Remove all</button>-->
+<!--  </form>-->
+
+  <table border="1" class="table table-striped table-responsive-md">
+    <thead>
+    <tr>
+      <th>Timestamp</th>
+      <th>The real joke</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="joke : ${jokeList}">
+      <td th:text="${joke.timestamp}"></td>
+      <td th:text="${joke.joke}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+
+</html>
