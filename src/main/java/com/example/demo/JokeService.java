@@ -44,8 +44,8 @@ public class JokeService {
              */
             while (true) {
                 TopicPartition partition = new TopicPartition(TOPIC_NAME, 0);
-                consumer.assign(Collections.singleton(partition));
-                consumer.seekToBeginning(Collections.singleton(partition));
+//                consumer.assign(Collections.singleton(partition));
+//                consumer.seekToBeginning(Collections.singleton(partition));
                 ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
 
                 if (records.count() == 0) {
